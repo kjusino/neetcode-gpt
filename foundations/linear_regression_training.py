@@ -25,20 +25,20 @@ class Solution:
         #   3. Update: weights[j] -= learning_rate * gradient
         # Return np.round(final_weights, 5)
 
-        weights = initial_weights
+        initial_weights
 
         for epoch in range(num_iterations):
-            pred = self.get_model_prediction(X,weights)
+            pred = self.get_model_prediction(X,initial_weights)
 
-            gradient = np.array(weights)
+            gradient = np.array(initial_weights)
 
-            for j in range(len(weights)):
+            for j in range(len(initial_weights)):
 
                 derivative = self.get_derivative(pred, Y, len(X), X, j)
 
                 gradient[j] = derivative
 
             for j in range(len(gradient)):
-                weights[j] -= self.learning_rate * gradient[j]
+                initial_weights[j] -= self.learning_rate * gradient[j]
 
-        return np.round(weights, 5)
+        return np.round(initial_weights, 5)

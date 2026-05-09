@@ -25,8 +25,6 @@ class Solution:
         #   3. Update: weights[j] -= learning_rate * gradient
         # Return np.round(final_weights, 5)
 
-        initial_weights
-
         for epoch in range(num_iterations):
             pred = self.get_model_prediction(X,initial_weights)
 

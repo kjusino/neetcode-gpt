@@ -28,28 +28,17 @@ class Solution:
         weights = initial_weights
 
         for epoch in range(num_iterations):
-            print("weights")
-            print(weights)
             pred = self.get_model_prediction(X,weights)
-            print("pred")
-            print(pred)
 
             gradient = np.array(weights)
-            print("gradient")
-            print(gradient)
+
             for j in range(len(weights)):
 
                 derivative = self.get_derivative(pred, Y, len(X), X, j)
-                print("derivative")
-                print(derivative)
-
 
                 gradient[j] = derivative
-                print("new_gradient")
-                print(gradient)
+
             for j in range(len(gradient)):
                 weights[j] -= self.learning_rate * gradient[j]
-                print("weights")
-                print(weights)
 
         return np.round(weights, 5)

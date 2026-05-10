@@ -14,11 +14,12 @@ class Solution:
         z = np.dot(x, w) + b
         y_hat = 1/(1 + np.exp(-z))
 
-        # Loss: L = 0.5 * (y_hat - y_true)^2
-        loss = 0.5 * ((y_hat - y_true)**2)
+        error = y_hat - y_true
+        sigmoid_derivative = y_hat*(1 - y_hat)
+        delta = error * sigmoid_derivative
+
         grad_w = np.array(x)
         for i in range(len(grad_w)):
-            grad_w[i] = (y_hat - y_true) * y_hat*(1 - y_hat) * x[i]
-        grad_b = (y_hat - y_true) * y_hat*(1-y_hat)
+            grad_w[i] = delta * x[i]
         # Return: (dL_dw rounded to 5 decimals, dL_db rounded to 5 decimals)
-        return (np.round(grad_w, 5), np.round(grad_b, 5)) 
+        return (np.round(grad_w, 5), np.round(delta, 5)) 

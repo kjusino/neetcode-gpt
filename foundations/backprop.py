@@ -18,8 +18,6 @@ class Solution:
         sigmoid_derivative = y_hat*(1 - y_hat)
         delta = error * sigmoid_derivative
 
-        grad_w = np.array(x)
-        for i in range(len(grad_w)):
-            grad_w[i] = delta * x[i]
+        grad_w = delta * x
         # Return: (dL_dw rounded to 5 decimals, dL_db rounded to 5 decimals)
         return (np.round(grad_w, 5), np.round(delta, 5)) 

@@ -20,4 +20,4 @@ class Solution:
 
         grad_w = delta * x
         # Return: (dL_dw rounded to 5 decimals, dL_db rounded to 5 decimals)
-        return (np.round(grad_w, 5), np.round(delta, 5)) 
+        return (np.round(grad_w, 5), round(delta, 5)) 
